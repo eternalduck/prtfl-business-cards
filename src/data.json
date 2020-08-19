@@ -1,0 +1,35 @@
+[
+	{
+		"templateFirst": true,
+		"url": "e",
+		"photo": "eric-cartman.jpg",
+		"name": "Eric Cartman",
+		"position": "Director",
+		"email": "eric@cartman.com",
+		"phone": "+18002522366",
+		"whatsapp": "18002522366",
+		"vcf": "Eric-Cartman.vcf",
+		"fb": "ecartman",
+		"linkedin": "FatEric",
+		"analytics": "",
+		"color": "green"
+	},
+	{
+		"templateSecond": true,
+		"url": "k",
+		"photo": "kenny.jpg",
+		"name": "Kenny Mccormick",
+		"position": "Assistant Director",
+		"email": "kenny@cartman.com",
+		"phone": "+18007529340",
+		"whatsapp": "18007529340",
+		"vcf": "Kenny-Mccormick.vcf",
+		"vk": true,
+		"fb": true,
+		"tg": true,
+		"allSocial": "kennymc",
+		"analytics": "",
+		"color": "blue",
+		"centered": true
+	}
+]

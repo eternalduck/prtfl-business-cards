@@ -1,0 +1,251 @@
+@import "reset.css";
+
+@mixin min-width-421 {
+	@media only screen and (min-width: 421px) {
+		@content;
+	}
+}
+@mixin max-width-420 {
+	@media only screen and (max-width: 420px) {
+		@content;
+	}
+}
+@mixin max-width-360 {
+	@media only screen and (max-width: 360px) {
+		@content;
+	}
+}
+@mixin flex-container-stretch {
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+	align-items: stretch;
+}
+@mixin flex-container-end {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: stretch;
+}
+/////////////////////////
+body {
+	background: #54575C;
+	font-family: 'Literata', serif;
+}
+.card {
+	position: absolute;
+	width: 100%;
+	min-width: 240px;
+	background: #fff;
+	@include flex-container-stretch;
+	@include min-width-421() {
+		min-height: 700px;
+		max-width: 420px;
+		top: 5%;
+		left: 50%;
+		margin-left: -210px;
+		box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.25);
+	}
+	@include max-width-420() {
+		overflow: hidden;
+	}
+	&__main {
+		position: relative;
+		height: 100%;
+		flex: 1;
+		@include flex-container-stretch;
+	}
+	
+	&__bottom {
+		z-index: 40;
+		flex: 0 0 185px;
+		@include flex-container-end;
+		@include max-width-420 {
+			flex: 0 0 208px;
+		}
+		@include max-width-360() {
+			height: 125px;
+		}
+	}
+	
+	&__top {
+		padding: 50px 0 10px;
+		flex: 0;
+		z-index: 30;
+		@include max-width-360() {
+			padding: 15px 0 0;
+		}
+	}
+	&__mid {
+		margin-bottom: 25px;
+		flex: 1;
+		align-self: center;
+		z-index: 30;
+	}
+	
+	&__photo {
+		width: 155px;
+		height: 155px;
+		background: #fff;
+		border: 3px solid #fff;
+		border-radius: 10px;
+		margin: 0 auto;
+	}
+	&__photo img {
+		width: 100%;
+		height: 100%;
+		border-radius: 7px;
+	}
+	&__title {
+		text-align: center;
+		color: #fff;
+	}
+	&__name {
+		font-size: 30px;
+		line-height: 1.8;
+	}
+	&__position {
+		font-size: 18px;
+	}
+	&__item {
+		margin: 0;
+		padding: 0;
+		white-space: nowrap;
+		&_centered {text-align: center}
+	}
+	&__link {
+		text-decoration: none;
+		color: #fff;
+		font-size: 18px;
+		line-height: 2.2;
+		& span {
+			border-bottom: 1px solid;
+			&:hover {
+				border-bottom: 1px transparent;
+			}
+		}
+		&_common {
+			text-align: center;
+			line-height: 1.3
+		}
+	}
+	&__logo {
+		display: block;
+		background: url("../assets/logo.svg") center/100% no-repeat;
+		width: 50px;
+		height: 50px;
+		margin: 0 auto 8px;
+		text-decoration: none;
+		outline: none;
+		border: none;
+		@include max-width-360() {
+			width: 190px;
+			margin: 0 auto 10px;
+		}
+	}
+	&__bottom-txt {
+		width: 100%;
+		text-align: center;
+		padding-bottom: 10px;
+		& a {
+			display: block;
+			font-size: 15px;
+			line-height: 2.2;
+			white-space: nowrap; 
+			color: #555;
+			text-decoration: none;
+		}
+	}
+	&__icon {
+		display: inline-block;
+		margin-right: 10px;
+		vertical-align: sub;
+		& path {fill-opacity: .85}
+		&_light {
+			width: 22px;
+			& path {
+				fill: #fff;
+			}
+		}
+		&_dark {
+			width: 20px;
+			& path {
+				fill: #555;
+			}
+		}
+		&_inline {
+			margin: 23px 20px 0 0;
+			width: 25px;
+			.card__link:last-child &{
+				margin-right: 0;
+			}
+		}
+		&.vk {width: 33px;}
+	}
+	&__bg {
+		position: absolute;
+		width: 100%;
+		height: calc(100% + 105px);
+		z-index: 1;
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 56%;
+		}
+		@include max-width-420 {
+			height: calc(100% + 125px);
+		}
+		&_green:before {
+			background: #769733;
+		}
+		&_blue:before {
+			background: #227E9F;
+		}
+		&_orange:before {
+			background: #8F3113;
+		}
+		&_gray:before {
+			background: #3E3D41;
+		}
+		
+	}
+	&__bg-left {
+		z-index: 20;
+		&_green {
+			background: url("../assets/bg/bg_green_left.svg") bottom left no-repeat;
+		}
+		&_blue {
+			background: url("../assets/bg/bg_blue_left.svg") bottom left no-repeat;
+		}
+		&_orange {
+			background: url("../assets/bg/bg_orange_left.svg") bottom left no-repeat;
+		}
+		&_gray {
+			background: url("../assets/bg/bg_gray_left.svg") bottom left no-repeat;
+		}
+	}
+	&__bg-right {
+		z-index: 10;
+		&_green {
+			background: url("../assets/bg/bg_green_right.svg") bottom right no-repeat;
+		}
+		&_blue {
+			background: url("../assets/bg/bg_blue_right.svg") bottom right no-repeat;
+		}
+		&_orange {
+			background: url("../assets/bg/bg_orange_right.svg") bottom right no-repeat;
+		}
+		&_gray {
+			background: url("../assets/bg/bg_gray_right.svg") bottom right no-repeat;
+		}
+	}
+	&__bg-left,
+	&__bg-right {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-size: 100%;
+	}
+}//card

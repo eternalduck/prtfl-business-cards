@@ -1,0 +1,9 @@
+.htaccess
+desktop.ini
+build/
+node_modules/
+/robots.txt
+*.DS_Store
+.idea
+.vscode
+*.psd

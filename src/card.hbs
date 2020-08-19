@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{name}} &mdash; Business Card</title>
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="shortcut icon" href="/assets/favicon.ico"/>
+	<link href="https://fonts.googleapis.com/css?family=Literata:400,700&display=swap&subset=latin-ext" rel="stylesheet">
+</head>
+<body>
+	<div class="card">
+		<div class="card__main">
+			<div class="card__bg card__bg_{{color}}">
+				<div class="card__bg-left card__bg-left_{{color}}"></div>
+				<div class="card__bg-right card__bg-right_{{color}}"></div>
+			</div>
+			<div class="card__top">
+				<div class="card__photo"><img src="../assets/cards/{{url}}/{{photo}}" alt=""></div>
+				<div class="card__title">
+					<p class="card__name">{{name}}</p>
+					<p class="card__position">{{position}}</p>
+				</div>
+			</div>
+			<div class="card__mid">
+				<p class="card__item{{#if centered}} card__item_centered{{/if}}">
+					<a class="card__link" href="mailto:{{email}}">
+						<span>{{email}}</span>
+					</a>
+				</p>
+
+				<p class="card__item{{#if centered}} card__item_centered{{/if}}">
+					<a class="card__link" href="tel://{{phone}}">
+						{{!-- added by js with spaces--}}
+						<span id="phone"></span>
+					</a>
+				</p>
+			{{#if templateFirst}}
+				{{#if site}}
+				<p class="card__item">
+					<a class="card__link" href="https://{{site}}">
+					 <i class="card__icon card__icon_light site">
+						@@include('./assets/icons/site.svg')
+					 </i>
+						<span>{{site}}</span>
+					</a>
+				</p>
+				{{/if}}
+				<p class="card__item">
+					<a class="card__link" href="https://facebook.com/{{fb}}">
+					 <i class="card__icon card__icon_light fb">
+						@@include('./assets/icons/fb.svg')
+					 </i>
+						<span>{{fb}}</span>
+					</a>
+				</p>
+
+				<p class="card__item">
+					<a class="card__link" href="https://linkedin.com/in/{{linkedin}}">
+						<i class="card__icon card__icon_light linkedin">
+							@@include('./assets/icons/linkedin.svg')
+						</i>
+						<span>{{linkedin}}</span>
+					</a>
+				</p>
+			{{/if}}
+
+			{{#if templateSecond}}
+				<p class="card__item card__item_centered">
+					<a class="card__link" href="https://vk.com/{{allSocial}}">
+						 <i class="card__icon card__icon_light vk card__icon_inline">
+							@@include('./assets/icons/vk.svg')
+						</i>
+					</a>
+
+					<a class="card__link" href="https://facebook.com/{{allSocial}}">
+					 <i class="card__icon card__icon_light fb card__icon_inline">
+						@@include('./assets/icons/fb.svg')
+					 </i>
+					</a>
+
+					<a class="card__link" href="https://t.me/{{allSocial}}">
+						 <i class="card__icon card__icon_light tg card__icon_inline">
+							@@include('./assets/icons/tg.svg')
+						</i>
+					</a>
+			</p>
+			{{/if}}
+
+			</div>{{!-- card__mid --}}
+		</div>{{!-- card__main --}}
+
+		<div class="card__bottom">
+			<a href="http://https://southpark.fandom.com/wiki/South_Park_Archives" class="card__logo"></a>
+			<div class="card__bottom-txt">
+				{{#if vcf}}
+				<a href="../assets/cards/{{url}}/{{vcf}}">
+					<i class="card__icon card__icon_dark add-contact">
+						@@include('./assets/icons/add-contact.svg')
+					</i>
+					<span>add me to contacts</span>
+				</a>
+				{{/if}}
+				{{#if whatsapp}}
+				<a href="https://api.whatsapp.com/send?phone={{whatsapp}}">
+					<i class="card__icon card__icon_dark whatsapp">
+						@@include('./assets/icons/whatsapp.svg')
+					</i>
+					<span>send me a message</span>
+				{{/if}}
+				</a>
+			</div>
+		</div>{{!-- card__bottom --}}
+	</div>
+<script>
+	//add spaces to phone
+	let string = "{{phone}}"
+	let ph = string.replace(/(\d{1})(\d{3})(\d{3})(\d{2})(\d{2})/, '$1 $2 $3 $4 $5');
+	document.getElementById("phone").innerHTML = ph;
+</script>
+</body>
