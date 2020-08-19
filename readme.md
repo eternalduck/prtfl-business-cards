@@ -44,4 +44,6 @@ Optional fields won't be rendered if left empty.
 
 4. Upload a compiled new person's folder from `/build/` to the domain's root.
 
+Developed in March, 2019
+
 ![demo](https://github.com/eternalduck/prtfl-business-cards/blob/master/src/assets/demo.jpg)
